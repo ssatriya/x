@@ -29,14 +29,6 @@ type PostFormEditorProps = {
   image: string;
 };
 
-async function delayedResolve() {
-  return new Promise((resolve) => {
-    setTimeout(() => {
-      resolve("Resolution after 1.2 seconds");
-    }, 1200);
-  });
-}
-
 const PostFormEditor = ({ username, image }: PostFormEditorProps) => {
   const router = useRouter();
   const queryClient = useQueryClient();
@@ -67,17 +59,10 @@ const PostFormEditor = ({ username, image }: PostFormEditorProps) => {
 
       const { data } = await axios.post("/api/post", payload);
 
-      await delayedResolve();
-
       return data;
     },
-    onError: () => {
-      // toast.error("Something went wrong", {
-      //   description: "Failed to submit post, try again later.",
-      // });
-    },
+    onError: () => {},
     onSuccess: () => {
-      // toast.success("Post has been created.");
       setContent("");
       router.refresh();
       setIsFocus(false);
@@ -168,14 +153,8 @@ const PostFormEditor = ({ username, image }: PostFormEditorProps) => {
       setFiles([]);
       setEditorValue(undefined);
     },
-    onUploadError: (error) => {
-      // toast.error("Failed to upload image.", {
-      //   description: error.message,
-      // });
-    },
-    onUploadBegin: () => {
-      // console.log("uploading");
-    },
+    onUploadError: (error) => {},
+    onUploadBegin: () => {},
     onUploadProgress: (progress) => {},
   });
 
@@ -191,8 +170,8 @@ const PostFormEditor = ({ username, image }: PostFormEditorProps) => {
 
   return (
     <div className="w-full relative">
-      {isUploading ||
-        (isPending && (
+      {isPending ||
+        (isUploading && (
           <Progress
             size="sm"
             aria-label="Posting..."
@@ -219,16 +198,6 @@ const PostFormEditor = ({ username, image }: PostFormEditorProps) => {
           className="rounded-full h-10 w-10"
         />
         <div className="w-full flex flex-col">
-          {/* {isFocus && !isUploading && !isPending && (
-            <Button
-              variant="bordered"
-              size="sm"
-              className="ml-3 border border-gray hover:bg-blue/10 flex h-6 w-fit rounded-full px-3 text-sm leading-4 text-blue font-bold mb-2"
-            >
-              Everyone
-              <Icons.arrowDown className="fill-blue h-[15px] w-[15px]" />
-            </Button>
-          )} */}
           <div className="ml-3">
             <div className="w-full">
               <Editor
