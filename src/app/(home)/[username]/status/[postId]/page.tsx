@@ -31,12 +31,15 @@ export default async function PostPage({ params }: PostPageProps) {
       likes: true,
       users: true,
       reposts: true,
-      replys: true,
-      // replys: {
-      //   with: {
-      //     repliedPost: true,
-      //   },
-      // },
+      replys: {
+        with: {
+          repliedPost: {
+            with: {
+              users: true,
+            },
+          },
+        },
+      },
       quoted: {
         with: {
           post: {
@@ -51,16 +54,56 @@ export default async function PostPage({ params }: PostPageProps) {
       and(eq(posts.id, params.postId), eq(posts.userId, userData.id)),
   });
 
+  // const singlePost = await db.query.posts.findMany({
+  //   where: (posts, { eq, and }) =>
+  //     and(eq(posts.id, params.postId), eq(posts.userId, userData.id)),
+  //   with: {
+  //     originalPost: {
+  //       with: {
+  //         users: true,
+  //         likes: true,
+  //         replys: true,
+  //         reposts: true,
+  //         quoted: true,
+  //       },
+  //     },
+  //     likes: true,
+  //     users: true,
+  //     reposts: true,
+  //     replys: {
+  //       with: {
+  //         repliedPost: {
+  //           with: {
+  //             users: true,
+  //           },
+  //         },
+  //       },
+  //     },
+  //     quoted: {
+  //       with: {
+  //         post: {
+  //           with: {
+  //             users: true,
+  //           },
+  //         },
+  //       },
+  //     },
+  //   },
+  // });
+
   if (!singlePost) {
     return redirect("/home");
   }
 
-  await db
-    .update(posts)
-    .set({ view: sql`${posts.view} + 1` })
-    .where(eq(posts.id, singlePost.id));
+  // console.log(singlePost);
+
+  // await db
+  //   .update(posts)
+  //   .set({ view: sql`${posts.view} + 1` })
+  //   .where(eq(posts.id, singlePost.id));
 
   return (
+    // <div>hello</div>
     <SinglePost
       singlePost={singlePost}
       sessionId={session.user.id}

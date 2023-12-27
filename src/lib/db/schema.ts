@@ -230,7 +230,6 @@ export type OriginalPost = SelectPost & {
   replys: SelectReplys[];
   reposts: SelectRepost[];
   quoted: Array<SelectQuotes & { post: SelectPost & { users: SelectUser } }>;
-  // quoted: SelectQuotes[];
 };
 
 // This is for quote username component
@@ -321,3 +320,16 @@ export const verificationTokens = pgTable(
     compoundKey: primaryKey(vt.identifier, vt.token),
   })
 );
+
+// =========================
+// Test single Page for getting replied To
+
+export type TestSinglePageRepliedTo = SelectPost & {
+  users: SelectUser;
+  likes: SelectLike[];
+  reposts: SelectRepost[];
+  replys: Array<
+    SelectReplys & { repliedPost: SelectPost & { users: SelectUser } }
+  >;
+  quoted: Array<SelectQuotes & { post: SelectPost & { users: SelectUser } }>;
+};

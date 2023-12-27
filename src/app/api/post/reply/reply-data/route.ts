@@ -27,7 +27,6 @@ export async function GET(req: Request) {
         replys: {
           with: {
             users: true,
-            // additional
             likes: true,
             reposts: true,
             replys: true,

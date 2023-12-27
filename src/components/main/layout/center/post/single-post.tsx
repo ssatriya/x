@@ -1,6 +1,11 @@
 "use client";
 
-import { ExtendedPost, SelectUser } from "@/lib/db/schema";
+import {
+  ExtendedPost,
+  ReplyWithRepliedTo,
+  SelectUser,
+  TestSinglePageRepliedTo,
+} from "@/lib/db/schema";
 import { QuillDeltaToHtmlConverter } from "quill-delta-to-html";
 import PostAvatar from "../user-detail/post-avatar";
 import { Button, Divider } from "@nextui-org/react";
@@ -14,7 +19,7 @@ import SinglePostReply from "@/components/main/reply/single-post/single-post-rep
 import TestReply from "../reply/test-reply";
 
 type SinglePostProps = {
-  singlePost: ExtendedPost;
+  singlePost: TestSinglePageRepliedTo;
   sessionImage: SelectUser["image"];
   sessionId: SelectUser["id"];
 };
@@ -38,6 +43,10 @@ const SinglePost = ({
       html = converted;
     }
   }
+
+  // Getting the replied post, the one that appear above your reply.
+  // Try to get the one that appear under it
+  // console.log(singlePost.replys[0].repliedPost.users.name);
 
   return (
     <div className="pt-3">
