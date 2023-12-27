@@ -1,0 +1,104 @@
+{
+  "version": "5",
+  "dialect": "mysql",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "5",
+      "when": 1703187011125,
+      "tag": "0000_black_kang",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "5",
+      "when": 1703187436798,
+      "tag": "0001_amazing_kid_colt",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "5",
+      "when": 1703187479897,
+      "tag": "0002_uneven_paper_doll",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "5",
+      "when": 1703335725928,
+      "tag": "0003_mute_loki",
+      "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "5",
+      "when": 1703407796793,
+      "tag": "0004_shocking_shinobi_shaw",
+      "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "5",
+      "when": 1703407873095,
+      "tag": "0005_modern_screwball",
+      "breakpoints": true
+    },
+    {
+      "idx": 6,
+      "version": "5",
+      "when": 1703429774872,
+      "tag": "0006_opposite_blizzard",
+      "breakpoints": true
+    },
+    {
+      "idx": 7,
+      "version": "5",
+      "when": 1703575002558,
+      "tag": "0007_medical_grim_reaper",
+      "breakpoints": true
+    },
+    {
+      "idx": 8,
+      "version": "5",
+      "when": 1703576486076,
+      "tag": "0008_material_maestro",
+      "breakpoints": true
+    },
+    {
+      "idx": 9,
+      "version": "5",
+      "when": 1703585611012,
+      "tag": "0009_ancient_the_watchers",
+      "breakpoints": true
+    },
+    {
+      "idx": 10,
+      "version": "5",
+      "when": 1703586251105,
+      "tag": "0010_past_nova",
+      "breakpoints": true
+    },
+    {
+      "idx": 11,
+      "version": "5",
+      "when": 1703587082994,
+      "tag": "0011_breezy_master_chief",
+      "breakpoints": true
+    },
+    {
+      "idx": 12,
+      "version": "5",
+      "when": 1703608163111,
+      "tag": "0012_aromatic_grey_gargoyle",
+      "breakpoints": true
+    },
+    {
+      "idx": 13,
+      "version": "5",
+      "when": 1703637040096,
+      "tag": "0013_many_thor_girl",
+      "breakpoints": true
+    }
+  ]
+}

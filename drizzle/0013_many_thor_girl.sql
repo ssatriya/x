@@ -1,0 +1,1 @@
+ALTER TABLE "post" ADD COLUMN "view" integer DEFAULT 0;

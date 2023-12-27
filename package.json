@@ -6,22 +6,46 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "migration:generate": "drizzle-kit generate:pg",
+    "migration:push": "drizzle-kit push:pg",
+    "migration:delete": "drizzle-kit drop --out ./drizzle"
   },
   "dependencies": {
+    "@auth/drizzle-adapter": "^0.3.11",
+    "@mantine/hooks": "^7.3.2",
+    "@neondatabase/serverless": "^0.6.1",
+    "@nextui-org/react": "^2.1.13",
+    "@tanstack/react-query": "^5.14.2",
+    "@uploadthing/react": "^6.0.2",
+    "axios": "^1.6.2",
+    "date-fns": "^3.0.5",
+    "dotenv": "^16.3.1",
+    "drizzle-orm": "^0.29.1",
+    "drizzle-zod": "^0.5.1",
+    "framer-motion": "^10.16.4",
+    "lucide-react": "^0.299.0",
+    "nanoid": "^5.0.4",
+    "next": "14.0.4",
+    "next-auth": "^4.24.5",
+    "quill-delta-to-html": "^0.12.1",
     "react": "^18",
     "react-dom": "^18",
-    "next": "14.0.4"
+    "react-quill": "^2.0.0",
+    "uploadthing": "^6.1.0",
+    "zod": "^3.22.4",
+    "zustand": "^4.4.7"
   },
   "devDependencies": {
-    "typescript": "^5",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "autoprefixer": "^10.0.1",
+    "drizzle-kit": "^0.20.7",
+    "eslint": "^8",
+    "eslint-config-next": "14.0.4",
     "postcss": "^8",
     "tailwindcss": "^3.3.0",
-    "eslint": "^8",
-    "eslint-config-next": "14.0.4"
+    "typescript": "^5"
   }
 }
