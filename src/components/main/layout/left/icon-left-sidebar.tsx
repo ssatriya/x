@@ -99,7 +99,7 @@ const IconLeftSidebar = ({ username, image, name }: IconLeftSidebarProps) => {
           </div>
         </Link>
         <a
-          href="https://github.com/ssatriya/x-clone"
+          href="https://github.com/ssatriya/x"
           target="__blank"
           className="hover:bg-hover w-fit p-3 rounded-full"
         >

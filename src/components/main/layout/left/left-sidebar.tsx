@@ -104,7 +104,7 @@ const LeftSidebar = ({ image, username, name }: LeftSidebarProps) => {
             />
           ))}
           <a
-            href="https://github.com/ssatriya/x-clone"
+            href="https://github.com/ssatriya/x"
             target="__blank"
             className="hover:bg-neutral-100/90 w-fit p-3 rounded-full bg-neutral-100"
           >
