@@ -1,16 +1,16 @@
 "use client";
 
 import * as React from "react";
+import { Button, useDisclosure } from "@nextui-org/react";
+import axios from "axios";
+import { usePrevious } from "@mantine/hooks";
+import { useQuery } from "@tanstack/react-query";
+
+import { ExtendedPost, SelectReplys, SelectUser } from "@/lib/db/schema";
 
 import Icons from "@/components/icons";
 import { cn } from "@/lib/utils";
-import { Button, useDisclosure } from "@nextui-org/react";
-
-import { ExtendedPost, SelectReplys, SelectUser } from "@/lib/db/schema";
-import { usePrevious } from "@mantine/hooks";
-import { useQuery } from "@tanstack/react-query";
-import axios from "axios";
-import ReplyModal from "../reply/reply-modal";
+import ReplyModal from "@/components/main/reply/reply-modal";
 
 type ReplyButtonProps = {
   post: ExtendedPost;

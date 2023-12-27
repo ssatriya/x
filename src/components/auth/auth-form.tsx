@@ -2,9 +2,9 @@
 
 import Link from "next/link";
 import { Button } from "@nextui-org/react";
+import { signIn } from "next-auth/react";
 
 import Icons from "@/components/icons";
-import { signIn, signOut } from "next-auth/react";
 
 const AuthForm = () => {
   return (

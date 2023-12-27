@@ -1,9 +1,10 @@
 "use client";
 
+import { QuillDeltaToHtmlConverter } from "quill-delta-to-html";
+import { Avatar } from "@nextui-org/react";
+
 import { ExtendedPost } from "@/lib/db/schema";
 import { formatTimeToNow } from "@/lib/utils";
-import { Avatar } from "@nextui-org/react";
-import { QuillDeltaToHtmlConverter } from "quill-delta-to-html";
 
 type ReplyTargetProps = {
   post: ExtendedPost;

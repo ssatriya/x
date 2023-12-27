@@ -1,18 +1,15 @@
 "use client";
 
-import {
-  ExtendedPost,
-  ReplyWithRepliedTo,
-  SelectUser,
-  TestSinglePageRepliedTo,
-} from "@/lib/db/schema";
 import { QuillDeltaToHtmlConverter } from "quill-delta-to-html";
-import PostAvatar from "../user-detail/post-avatar";
 import { Button, Divider } from "@nextui-org/react";
 import Icons from "@/components/icons";
+
+import { SelectUser, TestSinglePageRepliedTo } from "@/lib/db/schema";
 import { formatSinglePostDate, removeAtSymbol } from "@/lib/utils";
+
+import PostAvatar from "@/components/main/layout/center/user-detail/post-avatar";
 import PostAttachment from "@/components/main/post-attachment";
-import PostUsername from "../user-detail/post-username";
+import PostUsername from "@/components/main/layout/center/user-detail/post-username";
 import PostActionButton from "@/components/main/action-button/post-action-button";
 import SinglePostReply from "@/components/main/reply/single-post/single-post-reply";
 

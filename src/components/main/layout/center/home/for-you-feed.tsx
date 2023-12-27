@@ -2,14 +2,14 @@
 
 import * as React from "react";
 import { useIntersection } from "@mantine/hooks";
-
 import { Loader2 } from "lucide-react";
-import Post from "../post/post";
-import { ExtendedPost, SelectUser } from "@/lib/db/schema";
-import Quote from "../quote/quote";
-import { useInfiniteQuery } from "@tanstack/react-query";
-import { INFINITE_SCROLLING_PAGINATION_RESULTS } from "@/config";
 import axios from "axios";
+import { useInfiniteQuery } from "@tanstack/react-query";
+
+import Post from "@/components/main/layout/center/post/post";
+import { ExtendedPost, SelectUser } from "@/lib/db/schema";
+import Quote from "@/components/main/layout/center/quote/quote";
+import { INFINITE_SCROLLING_PAGINATION_RESULTS } from "@/config";
 
 type ForYouFeedProps = {
   sessionId: string;

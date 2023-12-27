@@ -2,7 +2,7 @@
 
 import { cn } from "@/lib/utils";
 import { AttachmentType } from "@/types";
-import PostFormAttachmentItem from "./post-form-attachment-item";
+import PostFormAttachmentItem from "@/components/main/post-form-attachment-item";
 
 type PostFormAttachmentProps = {
   files: AttachmentType[];

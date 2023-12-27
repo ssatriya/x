@@ -3,12 +3,10 @@
 import PostAttachment from "@/components/main/post-attachment";
 import { ExtendedReply, SelectUser } from "@/lib/db/schema";
 import { formatTimeToNow, removeAtSymbol } from "@/lib/utils";
-import PostAvatar from "../user-detail/post-avatar";
 import Link from "next/link";
 import { QuillDeltaToHtmlConverter } from "quill-delta-to-html";
 import ReplyAvatar from "../user-detail/reply/reply-avatar";
 import ReplyUsername from "../user-detail/reply/reply-username";
-// import ReplyAttachment from "./reply-attachment";
 import PostActionButton from "@/components/main/action-button/post-action-button";
 
 type ReplyItemProps = {

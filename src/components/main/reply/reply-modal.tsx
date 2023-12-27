@@ -1,9 +1,6 @@
 "use client";
 
 import * as React from "react";
-
-import Icons from "@/components/icons";
-import { ExtendedPost, SelectPost, SelectUser } from "@/lib/db/schema";
 import {
   Button,
   CircularProgress,
@@ -14,15 +11,18 @@ import {
   ModalHeader,
   Progress,
 } from "@nextui-org/react";
-import ReplyTarget from "./reply-target";
-import ReplyFormEditor from "./reply-form-editor";
 import { DeltaStatic } from "quill";
-import { AttachmentType } from "@/types";
-import { useMutation, useQueryClient } from "@tanstack/react-query";
 import axios from "axios";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
+
+import Icons from "@/components/icons";
+import { ExtendedPost, SelectPost, SelectUser } from "@/lib/db/schema";
+import ReplyTarget from "@/components/main/reply/reply-target";
+import ReplyFormEditor from "@/components/main/reply/reply-form-editor";
+import { AttachmentType } from "@/types";
 import { useUploadThing } from "@/lib/uploadthing";
 import { cn } from "@/lib/utils";
-import PostFormAttachment from "../post-form-attachment";
+import PostFormAttachment from "@/components/main/post-form-attachment";
 
 type ReplyModalProps = {
   onOpenChangeReplyModal: () => void;

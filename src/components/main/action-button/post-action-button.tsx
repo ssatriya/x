@@ -1,8 +1,9 @@
 import { Button } from "@nextui-org/react";
-import Icons from "../../icons";
-import ReplyButton from "./reply-button";
-import LikeButton from "./like-button";
-import RepostButton from "./repost-button";
+
+import Icons from "@/components/icons";
+import ReplyButton from "@/components/main/action-button/reply-button";
+import LikeButton from "@/components/main/action-button/like-button";
+import RepostButton from "@/components/main/action-button/repost-button";
 import { ExtendedPost, SelectUser } from "@/lib/db/schema";
 
 type PostActionButtonProps = {

@@ -1,13 +1,13 @@
 "use client";
 
 import * as React from "react";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
+import axios from "axios";
+import { usePrevious } from "@mantine/hooks";
+import { Button } from "@nextui-org/react";
 
 import Icons from "@/components/icons";
 import { cn } from "@/lib/utils";
-import { Button } from "@nextui-org/react";
-import { usePrevious } from "@mantine/hooks";
-import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
-import axios from "axios";
 import { ExtendedPost, SelectLike } from "@/lib/db/schema";
 
 type LikeButtonProps = {

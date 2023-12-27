@@ -1,9 +1,8 @@
-import SinglePost from "@/components/main/layout/center/post/single-post";
-import { getAuthSession } from "@/lib/auth-options";
-import db from "@/lib/db";
-import { posts } from "@/lib/db/schema";
-import { sql, eq } from "drizzle-orm";
 import { redirect } from "next/navigation";
+
+import SinglePost from "@/components/main/layout/center/post/single-post";
+import db from "@/lib/db";
+import { getAuthSession } from "@/lib/auth-options";
 
 type PostPageProps = {
   params: {

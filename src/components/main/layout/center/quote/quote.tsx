@@ -6,12 +6,13 @@ import PostUsername from "@/components/main/layout/center/user-detail/quote/quot
 import TooltipUser from "../user-detail/tooltip-user";
 import Link from "next/link";
 import { Avatar, Button } from "@nextui-org/react";
+
 import { formatTimeToNow, removeAtSymbol } from "@/lib/utils";
 import Icons from "@/components/icons";
 import PostAttachment from "@/components/main/post-attachment";
 import PostActionButton from "@/components/main/action-button/post-action-button";
 import QuoteUsername from "@/components/main/layout/center/user-detail/quote/quote-username";
-import TooltipUserQuote from "../user-detail/quote/tooltip-user-quote";
+import TooltipUserQuote from "@/components/main/layout/center/user-detail/quote/tooltip-user-quote";
 
 type QuoteProps = {
   post: ExtendedPost;

@@ -1,6 +1,5 @@
 import { getAuthSession } from "@/lib/auth-options";
 import db from "@/lib/db";
-import { replys } from "@/lib/db/schema";
 
 export async function GET(req: Request) {
   try {

@@ -1,10 +1,6 @@
 "use client";
 
 import * as React from "react";
-
-import Icons from "@/components/icons";
-import { ExtendedPost, SelectRepost, SelectUser } from "@/lib/db/schema";
-import { cn } from "@/lib/utils";
 import { useMediaQuery, usePrevious } from "@mantine/hooks";
 import {
   Button,
@@ -16,7 +12,11 @@ import {
 } from "@nextui-org/react";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import axios from "axios";
-import QuoteModal from "../quote/quote-modal";
+import QuoteModal from "@/components/main/quote/quote-modal";
+
+import Icons from "@/components/icons";
+import { ExtendedPost, SelectRepost, SelectUser } from "@/lib/db/schema";
+import { cn } from "@/lib/utils";
 
 type RepostButtonProps = {
   post: ExtendedPost;

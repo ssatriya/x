@@ -1,3 +1,6 @@
+import { eq } from "drizzle-orm";
+import { redirect } from "next/navigation";
+
 import IconSidebar from "@/components/main/layout/left/icon-left-sidebar";
 import Sidebar from "@/components/main/layout/left/left-sidebar";
 import RightSidebar from "@/components/main/layout/right/right-sidebar";
@@ -6,8 +9,6 @@ import { getAuthSession } from "@/lib/auth-options";
 import db from "@/lib/db";
 import { users } from "@/lib/db/schema";
 import { cn } from "@/lib/utils";
-import { eq } from "drizzle-orm";
-import { redirect } from "next/navigation";
 
 export default async function HomeLayoutGroup({
   children,
