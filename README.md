@@ -24,7 +24,7 @@ This project is using Drizzle ORM and Neon PostgreSQL, I did another one with Pr
 
 ## Knwon Bug 🐞
 
-- Infinite loop when clicking on Home at sidebar (need refresh go back to normal)
+- You tell me
 
 ## Getting Started 🚀
 
