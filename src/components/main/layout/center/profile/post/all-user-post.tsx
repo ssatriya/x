@@ -149,11 +149,11 @@ const AllUserPost = ({
           })
         )}
       </ul>
-      {!isLoading && (
+      {/* {!isLoading && (
         <li className="pb-6 h-full flex justify-center items-start mt-6">
           <Loader2 className="h-9 w-9 animate-spin stroke-blue" />
         </li>
-      )}
+      )} */}
       {/* {!hasNextPage && !isFetching && !isLoading && (
         <li className="pb-6 h-full flex justify-center items-start mt-6">
           <p>No more posts</p>
