@@ -38,7 +38,7 @@ const Onboarding = ({ username, userId }: OnboardingProps) => {
   const [localUsername, setLocalUsername] = React.useState(username);
   const [debouncedUsername] = useDebouncedValue(localUsername, 500);
 
-  const { mutate: submitOnboarding } = useMutation({
+  const { mutate: submitOnboarding, isPending } = useMutation({
     mutationFn: async () => {
       const payload: OnboardingPayload = {
         birthdate: `${[...yearValue][0]}-${[...monthValue][0]}-${
@@ -102,6 +102,7 @@ const Onboarding = ({ username, userId }: OnboardingProps) => {
                 setUsername={setLocalUsername}
                 debouncedUsername={debouncedUsername}
                 submitOnboarding={submitOnboarding}
+                isPending={isPending}
               />
             )}
           </ModalBody>

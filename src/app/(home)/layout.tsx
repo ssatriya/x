@@ -51,12 +51,13 @@ export default async function HomeLayoutGroup({
                 : "w-full sm:w-[600px]"
             )}
           >
+            {!userLoggedIn.onboarding && <div className="w-[599px] block" />}
             {children}
           </div>
           {userLoggedIn.onboarding ? (
             <RightSidebar />
           ) : (
-            <div className="hidden lg:w-[348px] lg:mr-6" />
+            <div className="hidden w-[348px] xl:flex xl:flex-col xl:mr-6" />
           )}
         </main>
       </div>

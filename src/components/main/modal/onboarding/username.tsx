@@ -15,6 +15,7 @@ type UsernameProps = {
   setUsername: (username: string) => void;
   debouncedUsername: string;
   submitOnboarding: () => void;
+  isPending: boolean;
 };
 
 const Username = ({
@@ -25,8 +26,10 @@ const Username = ({
   setUsername,
   debouncedUsername,
   submitOnboarding,
+  isPending,
 }: UsernameProps) => {
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
     setUsername(e.target.value);
   };
 
@@ -53,9 +56,10 @@ const Username = ({
 
   if (error) {
     if (error instanceof AxiosError) {
-      if (error.response?.status === 402) {
-        errorMessage = error.response?.data[0].message;
-      }
+      // if (error.response?.status === 402) {
+      errorMessage = error.response?.data[0].message;
+      // }
+      // if(error.response?.status === 422){}
     }
   } else if (debouncedUsername === "") {
     errorMessage = "Username is required.";
@@ -89,7 +93,7 @@ const Username = ({
             label="Username"
             type="text"
             startContent={
-              <p className="group-data-[focus=true]:text-blue hidden group-data-[focus=true]:inline-block group-data-[filled-within=true]:inline-block group-data-[invalid=true]:text-danger">
+              <p className="group-data-[focus=true]:text-blue hidden group-data-[focus=true]:inline-block group-data-[filled-within=true]:inline-block group-data-[invalid=true]:text-danger mt-[2px]">
                 @
               </p>
             }
@@ -117,7 +121,7 @@ const Username = ({
       </div>
       <Button
         isDisabled={isDisabled}
-        // isLoading={isLoadingSubmit}
+        isLoading={isPending}
         onClick={() => {
           if (step === 3) {
             submitOnboarding();
