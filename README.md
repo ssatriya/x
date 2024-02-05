@@ -22,6 +22,8 @@ This project is using Drizzle ORM and Neon PostgreSQL, I did another one with Pr
 
 ## TODO 📝
 
+- Organize some component & rename variable
+
 ## Knwon Bug 🐞
 
 - You tell me

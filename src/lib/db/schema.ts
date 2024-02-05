@@ -180,7 +180,7 @@ export type ExtendedPost = Omit<SelectPost, "users" | "likes" | "reposts"> & {
   users: SelectUser;
   likes: SelectLike[];
   reposts: SelectRepost[];
-  replys: SelectReplys[];
+  repliedPost: SelectReplys[];
   quoted: Array<SelectQuotes & { post: SelectPost & { users: SelectUser } }>;
 };
 

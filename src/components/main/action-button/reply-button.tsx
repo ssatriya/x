@@ -20,7 +20,7 @@ type ReplyButtonProps = {
 
 const ReplyButton = ({ post, sessionImage, sessionId }: ReplyButtonProps) => {
   const [localReplysData, setLocalReplysData] = React.useState<SelectReplys[]>(
-    post.replys
+    post.repliedPost
   );
   const previousRepliesData = usePrevious<SelectReplys[]>(localReplysData);
 
@@ -43,12 +43,11 @@ const ReplyButton = ({ post, sessionImage, sessionId }: ReplyButtonProps) => {
     },
   });
 
-  // Change this i think
-  // React.useEffect(() => {
-  //   if (replyData) {
-  //     setLocalReplysData(replyData);
-  //   }
-  // }, [replyData]);
+  React.useEffect(() => {
+    if (replyData) {
+      setLocalReplysData(replyData);
+    }
+  }, [replyData]);
 
   return (
     <div className="flex relative items-center group right-2">

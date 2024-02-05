@@ -42,12 +42,16 @@ export async function GET(req: Request) {
 
     const allPosts = await db.query.posts.findMany({
       where: (posts, { or, eq }) =>
-        or(eq(posts.postType, "POST"), eq(posts.postType, "QUOTE")),
+        or(
+          eq(posts.postType, "POST"),
+          eq(posts.postType, "QUOTE"),
+          eq(posts.postType, "REPLY")
+        ),
       with: {
         likes: true,
         users: true,
         reposts: true,
-        replys: true,
+        repliedPost: true,
         quoted: {
           with: {
             post: {
