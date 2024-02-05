@@ -43,11 +43,12 @@ const ReplyButton = ({ post, sessionImage, sessionId }: ReplyButtonProps) => {
     },
   });
 
-  React.useEffect(() => {
-    if (replyData) {
-      setLocalReplysData(replyData);
-    }
-  }, [replyData]);
+  // Change this i think
+  // React.useEffect(() => {
+  //   if (replyData) {
+  //     setLocalReplysData(replyData);
+  //   }
+  // }, [replyData]);
 
   return (
     <div className="flex relative items-center group right-2">
