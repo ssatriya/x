@@ -30,6 +30,7 @@ export default async function PostPage({ params }: PostPageProps) {
       likes: true,
       users: true,
       reposts: true,
+      repliedPost: true,
       replys: {
         with: {
           repliedPost: {

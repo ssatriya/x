@@ -190,7 +190,7 @@ export type ExtendedReplyContent = Array<
       users: SelectUser;
       likes: SelectLike[];
       reposts: SelectRepost[];
-      replys: SelectReplys[];
+      repliedPost: SelectReplys[];
       quoted: Array<
         SelectQuotes & { post: SelectPost & { users: SelectUser } }
       >;
@@ -202,7 +202,7 @@ export type ExtendedReply = SelectPost & {
   users: SelectUser;
   likes: SelectLike[];
   reposts: SelectRepost[];
-  replys: SelectReplys[];
+  repliedPost: SelectReplys[];
   quoted: Array<SelectQuotes & { post: SelectPost & { users: SelectUser } }>;
 };
 
@@ -329,6 +329,7 @@ export type TestSinglePageRepliedTo = SelectPost & {
   users: SelectUser;
   likes: SelectLike[];
   reposts: SelectRepost[];
+  repliedPost: SelectReplys[];
   replys: Array<
     SelectReplys & { repliedPost: SelectPost & { users: SelectUser } }
   >;
