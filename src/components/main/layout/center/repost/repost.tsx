@@ -1,7 +1,7 @@
 "use client";
 
 import PostActionButton from "@/components/main/action-button/post-action-button";
-import { ExtendedPost, OriginalPost, SelectUser } from "@/lib/db/schema";
+import { ExtendedPost, ReplyWithRepliedTo, SelectUser } from "@/lib/db/schema";
 import { formatTimeToNow, removeAtSymbol } from "@/lib/utils";
 import { QuillDeltaToHtmlConverter } from "quill-delta-to-html";
 import PostAvatar from "../user-detail/post-avatar";

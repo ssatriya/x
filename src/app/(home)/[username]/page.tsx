@@ -35,6 +35,53 @@ export default async function ProfilePage({ params }: ProfilePageProps) {
     where: (posts, { eq }) => eq(posts.userId, userByUsername.id),
   });
 
+  const initialData = await db.query.posts.findMany({
+    where: (posts, { eq }) => eq(posts.userId, userByUsername.id),
+    with: {
+      originalPost: {
+        with: {
+          users: true,
+          likes: true,
+          repliedPost: true,
+          reposts: true,
+          quoted: {
+            with: {
+              post: {
+                with: {
+                  users: true,
+                },
+              },
+            },
+          },
+        },
+      },
+      likes: true,
+      users: true,
+      reposts: true,
+      repliedPost: true,
+      replys: {
+        with: {
+          repliedPost: {
+            with: {
+              users: true,
+            },
+          },
+        },
+      },
+      quoted: {
+        with: {
+          post: {
+            with: {
+              users: true,
+            },
+          },
+        },
+      },
+    },
+    orderBy: (posts, { desc }) => desc(posts.createdAt),
+    limit: 10,
+  });
+
   return (
     <>
       <Header
@@ -50,6 +97,7 @@ export default async function ProfilePage({ params }: ProfilePageProps) {
         userByUsername={userByUsername}
         sessionId={session.user.id}
         sessionImage={session.user.image!}
+        initialData={initialData}
       />
     </>
   );

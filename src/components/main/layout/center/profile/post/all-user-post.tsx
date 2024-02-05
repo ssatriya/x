@@ -7,6 +7,7 @@ import * as React from "react";
 import Post from "../../post/post";
 import Quote from "../../quote/quote";
 import ReplyWithRepliedTo from "../../reply/reply-with-replied-to";
+import { ReplyWithRepliedTo as ReplyWithRepliedToType } from "@/lib/db/schema";
 import Repost from "../../repost/repost";
 import { useInfiniteQuery } from "@tanstack/react-query";
 import { INFINITE_SCROLLING_PAGINATION_RESULTS } from "@/config";
@@ -16,12 +17,14 @@ type AllUserPostProps = {
   userByUsername: UsersProfile;
   sessionId: SelectUser["id"];
   sessionImage: SelectUser["image"];
+  initialData: any;
 };
 
 const AllUserPost = ({
   userByUsername,
   sessionId,
   sessionImage,
+  initialData,
 }: AllUserPostProps) => {
   const lastPostRef = React.useRef();
   const { ref, entry } = useIntersection({
@@ -36,12 +39,16 @@ const AllUserPost = ({
         const query = `/api/profile/post-by-id/all-post?userByUsernameId=${userByUsername.id}&limit=${INFINITE_SCROLLING_PAGINATION_RESULTS}&page=${pageParam}`;
 
         const { data } = await axios.get(query);
-        return data as ReplyWithRepliedTo[];
+        return data as ReplyWithRepliedToType[];
       },
       getNextPageParam: (_, pages) => {
         return pages.length + 1;
       },
       initialPageParam: 1,
+      initialData: {
+        pages: [initialData],
+        pageParams: [1],
+      },
     });
 
   React.useEffect(() => {
@@ -51,8 +58,9 @@ const AllUserPost = ({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [entry?.isIntersecting]);
 
-  const allPosts: ReplyWithRepliedTo[] =
-    data?.pages.flatMap((page) => page) ?? [];
+  const allPosts: ReplyWithRepliedToType[] = isFetching
+    ? initialData
+    : data?.pages.flatMap((page) => page);
 
   return (
     <>

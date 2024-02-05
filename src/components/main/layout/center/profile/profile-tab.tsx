@@ -3,17 +3,20 @@
 import { SelectUser, UsersProfile } from "@/lib/db/schema";
 import { Tab, Tabs } from "@nextui-org/react";
 import AllUserPost from "./post/all-user-post";
+import { ReplyWithRepliedTo as ReplyWithRepliedToType } from "@/lib/db/schema";
 
 type ProfileTabProps = {
   userByUsername: UsersProfile;
   sessionId: SelectUser["id"];
   sessionImage: SelectUser["image"];
+  initialData: any;
 };
 
 const ProfileTab = ({
   userByUsername,
   sessionId,
   sessionImage,
+  initialData,
 }: ProfileTabProps) => {
   return (
     <div className="flex w-full flex-col">
@@ -34,6 +37,7 @@ const ProfileTab = ({
             userByUsername={userByUsername}
             sessionId={sessionId}
             sessionImage={sessionImage}
+            initialData={initialData}
           />
         </Tab>
         <Tab key="replies" title="Replies"></Tab>

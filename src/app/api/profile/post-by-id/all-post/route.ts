@@ -64,14 +64,23 @@ export async function GET(req: Request) {
           with: {
             users: true,
             likes: true,
-            replys: true,
+            repliedPost: true,
             reposts: true,
-            quoted: true,
+            quoted: {
+              with: {
+                post: {
+                  with: {
+                    users: true,
+                  },
+                },
+              },
+            },
           },
         },
         likes: true,
         users: true,
         reposts: true,
+        repliedPost: true,
         replys: {
           with: {
             repliedPost: {

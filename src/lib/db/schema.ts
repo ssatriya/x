@@ -210,6 +210,7 @@ export type ReplyWithRepliedTo = SelectPost & {
   users: SelectUser;
   likes: SelectLike[];
   reposts: SelectRepost[];
+  repliedPost: SelectReplys[];
   replys: Array<
     SelectReplys & { repliedPost: SelectPost & { users: SelectUser } }
   >;
@@ -217,7 +218,7 @@ export type ReplyWithRepliedTo = SelectPost & {
   originalPost: SelectPost & {
     users: SelectUser;
     likes: SelectLike[];
-    replys: SelectReplys[];
+    repliedPost: SelectReplys[];
     reposts: SelectRepost[];
     quoted: Array<SelectQuotes & { post: SelectPost & { users: SelectUser } }>;
   };

@@ -22,6 +22,7 @@ const ReplyButton = ({ post, sessionImage, sessionId }: ReplyButtonProps) => {
   const [localReplysData, setLocalReplysData] = React.useState<SelectReplys[]>(
     post.repliedPost
   );
+
   const previousRepliesData = usePrevious<SelectReplys[]>(localReplysData);
 
   const {

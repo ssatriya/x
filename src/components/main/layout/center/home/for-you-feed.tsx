@@ -14,13 +14,8 @@ import { INFINITE_SCROLLING_PAGINATION_RESULTS } from "@/config";
 type ForYouFeedProps = {
   sessionId: string;
   sessionImage: SelectUser["image"];
-  initialPosts: ExtendedPost[];
 };
-const ForYouFeed = ({
-  sessionId,
-  sessionImage,
-  initialPosts,
-}: ForYouFeedProps) => {
+const ForYouFeed = ({ sessionId, sessionImage }: ForYouFeedProps) => {
   const lastPostRef = React.useRef();
   const { ref, entry } = useIntersection({
     root: lastPostRef.current,
