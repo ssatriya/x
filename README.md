@@ -23,10 +23,11 @@ This project is using Drizzle ORM and Neon PostgreSQL, I did another one with Pr
 ## TODO 📝
 
 - Organize some component & rename variable
+- Fix bug
 
 ## Knwon Bug 🐞
 
-- You tell me
+- URL not change when attachment closed and seems to caused infinite render/reload
 
 ## Getting Started 🚀
 
