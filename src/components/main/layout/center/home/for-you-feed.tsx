@@ -10,12 +10,19 @@ import Post from "@/components/main/layout/center/post/post";
 import { ExtendedPost, SelectUser } from "@/lib/db/schema";
 import Quote from "@/components/main/layout/center/quote/quote";
 import { INFINITE_SCROLLING_PAGINATION_RESULTS } from "@/config";
+import { useScrollHistory } from "@/hooks/useScrollHistory";
 
 type ForYouFeedProps = {
   sessionId: string;
   sessionImage: SelectUser["image"];
+  initialPosts: ExtendedPost[];
 };
-const ForYouFeed = ({ sessionId, sessionImage }: ForYouFeedProps) => {
+const ForYouFeed = ({
+  sessionId,
+  sessionImage,
+  initialPosts,
+}: ForYouFeedProps) => {
+  const { fromTop } = useScrollHistory((state) => state);
   const lastPostRef = React.useRef();
   const { ref, entry } = useIntersection({
     root: lastPostRef.current,
@@ -35,6 +42,10 @@ const ForYouFeed = ({ sessionId, sessionImage }: ForYouFeedProps) => {
         return pages.length + 1;
       },
       initialPageParam: 1,
+      initialData: {
+        pages: [initialPosts],
+        pageParams: [1],
+      },
     });
 
   React.useEffect(() => {
@@ -44,7 +55,11 @@ const ForYouFeed = ({ sessionId, sessionImage }: ForYouFeedProps) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [entry?.isIntersecting]);
 
-  const posts: ExtendedPost[] = data?.pages.flatMap((page) => page) ?? [];
+  const posts: ExtendedPost[] = data?.pages.flatMap((page) => page);
+
+  React.useEffect(() => {
+    window.scrollTo({ top: fromTop });
+  }, []);
 
   return (
     <>

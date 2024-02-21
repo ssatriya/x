@@ -11,8 +11,14 @@ type HomeTabProps = {
   username: string;
   image: string;
   sessionId: string;
+  initialPosts: ExtendedPost[];
 };
-const HomeTab = ({ username, image, sessionId }: HomeTabProps) => {
+const HomeTab = ({
+  username,
+  image,
+  sessionId,
+  initialPosts,
+}: HomeTabProps) => {
   return (
     <div className="flex w-full flex-col relative">
       <div className="hidden md:flex md:fixed md:w-[599px] bg-black/90 z-40 border-r backdrop-blur-sm">
@@ -34,7 +40,11 @@ const HomeTab = ({ username, image, sessionId }: HomeTabProps) => {
         <Tab key="for-you" title="For you">
           <div className="md:mt-[6.4rem] md:w-[599px]">
             <PostFormEditor image={image} username={username} />
-            <ForYouFeed sessionId={sessionId} sessionImage={image} />
+            <ForYouFeed
+              sessionId={sessionId}
+              sessionImage={image}
+              initialPosts={initialPosts}
+            />
           </div>
         </Tab>
         <Tab key="following" title="Following">

@@ -13,6 +13,8 @@ import PostAvatar from "../user-detail/post-avatar";
 import PostAttachment from "../../../post-attachment";
 import PostActionButton from "@/components/main/action-button/post-action-button";
 import { ExtendedPost, SelectUser } from "@/lib/db/schema";
+import { useWindowScroll } from "@mantine/hooks";
+import { useScrollHistory } from "@/hooks/useScrollHistory";
 
 type PostProps = {
   post: ExtendedPost;
@@ -22,7 +24,8 @@ type PostProps = {
 };
 const Post = ({ post, sessionId, sessionImage, styles }: PostProps) => {
   const usernameWithoutAt = removeAtSymbol(post.users.username!);
-
+  const [scroll] = useWindowScroll();
+  const { setFromTop } = useScrollHistory((state) => state);
   const postURL = `/${usernameWithoutAt}/status/${post.id}`;
 
   const cfg = {};
@@ -40,7 +43,7 @@ const Post = ({ post, sessionId, sessionImage, styles }: PostProps) => {
 
   // const { prevPath } = usePrevPath((state) => state);
   const onPostClick = () => {
-    //   prevPath(path);
+    setFromTop(scroll.y);
   };
 
   return (
@@ -52,6 +55,12 @@ const Post = ({ post, sessionId, sessionImage, styles }: PostProps) => {
       onClick={(e) => e.stopPropagation()}
     >
       <Link href={postURL} onClick={onPostClick} className="absolute inset-0" />
+      {/* <div
+        onClick={() => {
+          console.log(scroll);
+        }}
+        className="absolute inset-0"
+      /> */}
       <div className="z-10 h-fit">
         <PostAvatar
           sessionId={sessionId}

@@ -1,6 +1,6 @@
 import db from "@/lib/db";
 import { getAuthSession } from "@/lib/auth-options";
-import { posts } from "@/lib/db/schema";
+import { ExtendedPost, posts } from "@/lib/db/schema";
 
 // export const runtime = "edge";
 
@@ -40,7 +40,7 @@ export async function GET(req: Request) {
     const page = searchParams.get("page")!;
     const limit = searchParams.get("limit")!;
 
-    const allPosts = await db.query.posts.findMany({
+    const allPosts: ExtendedPost[] = await db.query.posts.findMany({
       where: (posts, { or, eq }) =>
         or(
           eq(posts.postType, "POST"),

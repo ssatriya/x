@@ -3,7 +3,6 @@
 import * as React from "react";
 import { Button, useDisclosure } from "@nextui-org/react";
 import axios from "axios";
-import { usePrevious } from "@mantine/hooks";
 import { useQuery } from "@tanstack/react-query";
 
 import { ExtendedPost, SelectReplys, SelectUser } from "@/lib/db/schema";
@@ -19,12 +18,6 @@ type ReplyButtonProps = {
 };
 
 const ReplyButton = ({ post, sessionImage, sessionId }: ReplyButtonProps) => {
-  const [localReplysData, setLocalReplysData] = React.useState<SelectReplys[]>(
-    post.repliedPost
-  );
-
-  const previousRepliesData = usePrevious<SelectReplys[]>(localReplysData);
-
   const {
     isOpen: isOpenReplyModal,
     onOpen: onOpenReplyModal,
@@ -42,13 +35,8 @@ const ReplyButton = ({ post, sessionImage, sessionId }: ReplyButtonProps) => {
 
       return data as SelectReplys[];
     },
+    initialData: post.repliedPost,
   });
-
-  React.useEffect(() => {
-    if (replyData) {
-      setLocalReplysData(replyData);
-    }
-  }, [replyData]);
 
   return (
     <div className="flex relative items-center group right-2">
@@ -63,7 +51,7 @@ const ReplyButton = ({ post, sessionImage, sessionId }: ReplyButtonProps) => {
         />
       </Button>
       <p className={cn("text-gray text-sm group-hover:text-blue")}>
-        {localReplysData.length}
+        {replyData?.length}
       </p>
 
       <ReplyModal

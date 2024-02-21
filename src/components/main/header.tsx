@@ -17,11 +17,7 @@ const Header = ({ title, subtitle, backButton }: HeaderProps) => {
   const previousPath = usePreviousPath((state) => state.previousPath);
 
   const handleBack = () => {
-    // if (previousPath) {
-    //   router.push(previousPath, { scroll: false });
-    // } else {
     router.push("/home", { scroll: false });
-    // }
   };
 
   return (
