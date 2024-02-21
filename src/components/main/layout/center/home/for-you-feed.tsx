@@ -59,6 +59,7 @@ const ForYouFeed = ({
 
   React.useEffect(() => {
     window.scrollTo({ top: fromTop });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
