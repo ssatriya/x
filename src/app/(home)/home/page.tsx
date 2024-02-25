@@ -58,7 +58,6 @@ export default async function HomePage() {
       },
     },
     orderBy: (posts, { desc }) => desc(posts.createdAt),
-    offset: 1 * 10,
     limit: 10,
   });
 

@@ -42,10 +42,6 @@ const ForYouFeed = ({
         return pages.length + 1;
       },
       initialPageParam: 1,
-      initialData: {
-        pages: [initialPosts],
-        pageParams: [1],
-      },
     });
 
   React.useEffect(() => {
