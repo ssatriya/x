@@ -55,7 +55,8 @@ const ForYouFeed = ({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [entry?.isIntersecting]);
 
-  const posts: ExtendedPost[] = data?.pages.flatMap((page) => page);
+  const posts: ExtendedPost[] =
+    data?.pages.flatMap((page) => page) ?? initialPosts;
 
   React.useEffect(() => {
     window.scrollTo({ top: fromTop });
