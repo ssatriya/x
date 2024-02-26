@@ -2,10 +2,8 @@
 
 import Icons from "@/components/icons";
 import { cn, formatTimeToNow, removeAtSymbol } from "@/lib/utils";
-import { PostUser } from "@/types";
 import { Button } from "@nextui-org/react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 import * as React from "react";
 import PostUsername from "../user-detail/post-username";
 import { QuillDeltaToHtmlConverter } from "quill-delta-to-html";
@@ -55,12 +53,6 @@ const Post = ({ post, sessionId, sessionImage, styles }: PostProps) => {
       onClick={(e) => e.stopPropagation()}
     >
       <Link href={postURL} onClick={onPostClick} className="absolute inset-0" />
-      {/* <div
-        onClick={() => {
-          console.log(scroll);
-        }}
-        className="absolute inset-0"
-      /> */}
       <div className="z-10 h-fit">
         <PostAvatar
           sessionId={sessionId}

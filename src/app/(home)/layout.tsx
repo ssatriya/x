@@ -12,8 +12,10 @@ import { cn } from "@/lib/utils";
 
 export default async function HomeLayoutGroup({
   children,
+  photoModal,
 }: {
   children: React.ReactNode;
+  photoModal: React.ReactNode;
 }) {
   const session = await getAuthSession();
 
@@ -53,6 +55,7 @@ export default async function HomeLayoutGroup({
           >
             {!userLoggedIn.onboarding && <div className="w-[599px] block" />}
             {children}
+            {photoModal}
           </div>
           {userLoggedIn.onboarding ? (
             <RightSidebar />

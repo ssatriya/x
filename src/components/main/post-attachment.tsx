@@ -2,11 +2,12 @@ import { cn, removeAtSymbol } from "@/lib/utils";
 import { PostUser } from "@/types";
 import { useDisclosure } from "@nextui-org/react";
 import Image from "next/image";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import PostLightbox from "./layout/center/post/lightbox/post-lightbox";
 import { ExtendedPost, SelectUser } from "@/lib/db/schema";
 import { useImageNumber } from "@/hooks/useImageNumber";
 import { usePreviousPath } from "@/hooks/usePreviousPath";
+import Link from "next/link";
 
 type PostAttachmentProps = {
   post: ExtendedPost;
@@ -19,8 +20,7 @@ const PostAttachment = ({
   sessionId,
   sessionImage,
 }: PostAttachmentProps) => {
-  const pathname = usePathname();
-
+  const router = useRouter();
   const setImageNumber = useImageNumber((state) => state.setImageNumber);
   // const setPreviousPath = usePreviousPath((state) => state.setPreviousPath);
 
@@ -34,6 +34,7 @@ const PostAttachment = ({
   };
 
   const onAttachmentClick = () => {
+    console.log("click");
     // setPreviousPath(pathname);
   };
 
@@ -91,66 +92,30 @@ const PostAttachment = ({
                   scrollClickHandle();
                 }
               }}
-              onClick={() => {
-                onAttachmentClick();
-              }}
             >
-              <Image
-                onClick={() => {
-                  onOpen();
-                  window.history.pushState(
-                    "page2",
-                    "Title",
-                    `/${usernameWithoutAt}/status/${post.id}/photo/${i + 1}`
-                  );
-
-                  setImageNumber(i + 1);
-                }}
-                src={image}
-                fill
-                sizes="(max-widht: 600px) 512px"
-                className={cn(
-                  "h-full w-full object-cover border cursor-pointer",
-                  borderImage
-                )}
-                alt="attachment"
-                priority
-              />
-            </div>
-            {/* <Link
-              onMouseDown={(e) => {
-                if (e.button === 1) {
-                  e.stopPropagation();
-                  scrollClickHandle();
-                }
-              }}
-              as={`/${cleanUsername}/status/${post.id}/photo/${i + 1}`}
-              href={`/${cleanUsername}/status/${post.id}/photo/${i + 1}`}
-              scroll={false}
-              onClick={onAttachmentClick}
-            >
-            <Image
-            src={image}
-                fill
-                sizes="(max-widht: 600px) 512px"
-                className={cn(borderImage, "h-full w-full object-cover border")}
-                alt="attachment"
-                priority
+              <Link
+                href={`/${usernameWithoutAt}/status/${post.id}/photo`}
+                scroll={false}
+              >
+                <Image
+                  onClick={() => {
+                    setImageNumber(i + 1);
+                  }}
+                  src={image}
+                  fill
+                  sizes="(max-widht: 600px) 512px"
+                  className={cn(
+                    "h-full w-full object-cover border cursor-pointer",
+                    borderImage
+                  )}
+                  alt="attachment"
+                  priority
                 />
-              </Link> */}
+              </Link>
+            </div>
           </div>
         );
       })}
-      {/* <LightboxPostModal
-        modalId={modalId}
-        onClose={onClose}
-        isOpen={isOpen}
-        username={cleanUsername}
-        currentUser={currentUser}
-        imageUrlArray={imageUrlArray}
-        post={post}
-        postId={post.id}
-      /> */}
       <PostLightbox
         imageUrlArray={imageUrlArray}
         isOpen={isOpen}

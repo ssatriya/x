@@ -24,6 +24,7 @@ This project is using Drizzle ORM and Neon PostgreSQL, I did another one with Pr
 
 - Organize some component & rename variable
 - Fix bug
+- Fix lightbox image
 
 ## Knwon Bug 🐞
 
