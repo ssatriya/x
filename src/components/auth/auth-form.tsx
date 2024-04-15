@@ -10,7 +10,11 @@ const AuthForm = () => {
   return (
     <div className="flex h-full justify-start flex-col gap-4">
       <div className="w-[300px] flex flex-col gap-3">
-        <Button
+        <p>
+          Currently not working, trying to change DB provider from Planetscale
+          to Neon DB.
+        </p>
+        {/* <Button
           onClick={() => signIn("google")}
           className="w-full rounded-full bg-white hover:bg-zinc-200"
         >
@@ -22,7 +26,7 @@ const AuthForm = () => {
             <Icons.apple className="h-6 w-6 mr-2" />
             <p className="font-bold text-black">Sign up with Apple</p>
           </Button>
-        </Link>
+        </Link> */}
         <div className="flex justify-center items-center w-full">
           <div className="h-[1px] w-full rounded-full bg-slate-700" />
           <span className="px-2">or</span>
