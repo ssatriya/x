@@ -5,7 +5,7 @@ import { getAuthSession } from "@/lib/auth-options";
 
 export default async function Home() {
   const session = await getAuthSession();
-
+  console.log(session);
   if (session?.user) {
     return redirect("/home");
   }

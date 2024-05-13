@@ -3,7 +3,7 @@ import GoogleProvider from "next-auth/providers/google";
 import { DrizzleAdapter } from "@auth/drizzle-adapter";
 import db from "@/lib/db";
 import { customAlphabet } from "nanoid";
-import { SelectUser, users } from "./db/schema";
+import { users } from "./db/schema";
 import { eq } from "drizzle-orm";
 
 const alphabet = "0123456789";
